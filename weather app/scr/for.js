@@ -14,24 +14,27 @@ const getweather=async(id)=>{
     return data[0];
     
 };
-// function function1(city){
-//     alert('hi');
-//     fetch("https://community-open-weather-map.p.rapidapi.com/find?q="+city+"&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=metric", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "b774af3dfdmshc8e8257d7dcbba2p196048jsnbed50875245d",
-// 		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
-// }
-// getcity('amritsar')
-// .then(data=>{
-//     return getweather(data.Key);
-// }).then(data=>console.log(data))
-// .catch(err=>console.log(err));
+
+
+function getMyLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      
+     async function showPosition(position) {
+          this.mylongitude = position.coords.longitude;
+          this.myLatitude = position.coords.latitude;
+          const value = position.coords.latitude + ',' +  position.coords.longitude;
+
+          const base='http://dataservice.accuweather.com/locations/v1/cities/geoposition/search';
+          const query=`?apikey=${key}&q=${value}`;
+          const response=await fetch(base+query);
+          const data= await response.json();
+          const weatherdetails = await getweather(data.Key);
+          const simplevalue= data.EnglishName + ' : ' + weatherdetails.Temperature.Metric.Value;
+         cityName.innerHTML = simplevalue;
+      }
+    
