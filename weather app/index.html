@@ -15,7 +15,10 @@
         <h2 class="my-4 text-muted text-center">
             SimplyWeather
         </h2>
-        <h4><p id="cityName"></p> </h4>
+        <h4><p id="cityName">
+            <div id="map" style="width:100%;height:400px;"></div>
+
+        </p> </h4>
         <form action="" class="my-4 text-center text-muted change-location">
             <label for="city" class="my-2">Enter the City name</label>
             <input type="text" name="city" class="form-control p-4 my-50">
@@ -37,8 +40,14 @@
             </div>
         </div>
     </div>
-    <script src="scr/for.js"></script>
-    <script src="scr/app.js"></script>
+   
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO1Efdh3iIWE7Eqih9Ul_dBT086d_4Bd0&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script src="src/api.js"></script>
+    <script src="src/app.js"></script>
 
 </body>
 
