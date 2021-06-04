@@ -1,4 +1,4 @@
-const key = '	vuwFHencUu0tOlJAQRTPt12HkBfolu4B'
+const key = 'Yp3QHSFNFUHtJB0BGiWLdyAXwthBbISl'
 const getcity = async (city) => {
   const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
   const query = `?apikey=${key}&q=${city}`;
@@ -26,9 +26,10 @@ function getMyLocation() {
 }
 let map;
 
-function initMap(value) {
+function initMap(position) {
+  console.log(position);
   map = new google.maps.Map(document.getElementById("map"), {
-    center: {  lat: value.coords.latitude, lng: value.coords.longitude },
+    center: { lat: position.coords.latitude ,lng: position.coords.longitude },
     zoom: 8,
   });
 }
