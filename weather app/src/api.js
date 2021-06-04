@@ -28,7 +28,7 @@ let map;
 
 function initMap(value) {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { value},
+    center: {  lat: value.coords.latitude, lng: value.coords.longitude },
     zoom: 8,
   });
 }
@@ -37,7 +37,7 @@ async function showPosition(position) {
   this.mylongitude = position.coords.longitude;
   this.myLatitude = position.coords.latitude;
   const value = position.coords.latitude + ',' + position.coords.longitude;
-  initMap(value);
+  initMap(position);
   
 
   const base = 'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search';
