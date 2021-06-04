@@ -1,7 +1,17 @@
 body{
-    background-color: rgb(194, 191, 191);
+    /* background-color: rgb(194, 191, 191); */
     letter-spacing: 0.2em;
     font-size: 0.8em;
+}
+  .abc{
+    width:100%; 
+    background: url(img/day.svg) 50% 0 no-repeat fixed; 
+    background-size:cover; 
+}
+.xyz{
+    width:100%; 
+    background: url(img/night.svg) 50% 0 no-repeat fixed; 
+    background-size:cover; 
 }
 .container{
     max-width: 450px;

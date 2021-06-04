@@ -3,6 +3,7 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time')
 const icon = document.querySelector('.icon')
+const body= document.querySelector('body')
 getMyLocation();
 const updateCity = async (city) => {
 
@@ -48,11 +49,12 @@ const updateui = (data) => {
     `
 
     let timesrc = weatherdetails.IsDayTime ? 'img/day.svg' : 'img/night.svg';
-    // if(weatherdetails.IsDayTime){
-    //     timesrc='img/day.svg';
-    // }else{
-    //     timesrc='img/night.svg'
-    // };
+    if(weatherdetails.IsDayTime){
+        body.classList.add('abc');
+    }else{
+        body.classList.add('xyz');
+    };
+    // document.body.style.backgroundImage = "url(timesrc)";
     time.setAttribute('src', timesrc);
     if (card.classList.contains('d-none')) {
         card.classList.remove('d-none');
